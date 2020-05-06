@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+
+<Configuration status="ERROR" monitorInterval="3600" packages="com.clickhouse.test">
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+		    <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY" />
+			<PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5p] -%m%n" />
+		</Console>
+		
+		<RollingFile name="RollingFileInfo" fileName="clickhouse-test-log/info.log" filePattern="clickhouse-test-log/info-%d{yyyy-MM-dd}.log">
+			<ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY" />
+			<PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5p] -%m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+		</RollingFile>
+		
+		<RollingFile name="RollingFileError" fileName="clickhouse-test-log/error.log" filePattern="clickhouse-test-log/error-%d{yyyy-MM-dd}.log">
+			<ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY" />
+			<PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss:SSS}] [%-5p] [%l] -%m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="64MB" />
+			</Policies>
+		</RollingFile>
+		
+
+	</Appenders>
+	
+	
+	<Loggers>
+		<Logger name="org.springframework" level="WARN"></Logger>
+		<Logger name="org.mybatis" level="WARN"></Logger>
+		<Logger name="org.hibernate" level="WARN"></Logger>
+       
+        
+		<Root level="debug"  includeLocation="true">
+		    <Appender-ref ref="Console" />
+			<Appender-ref ref="RollingFileInfo" />
+			<Appender-ref ref="RollingFileError" />
+		</Root>
+	</Loggers>
+	
+</Configuration>
