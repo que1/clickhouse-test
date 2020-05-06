@@ -14,7 +14,7 @@ import java.util.concurrent.Executors;
  * ProjectName: com.clickhouse.test
  * ClassName:   ConcurrencyTest
  * Copyright:
- * Company:     bytedance
+ * Company:     b*d*
  * author:      queyiwen
  * version:     v1.0
  * since:
@@ -32,7 +32,7 @@ public class ConcurrencyTest {
 
     private static final Logger logger = LoggerFactory.getLogger(ConcurrencyTest.class);
 
-    private static final int TEST_COUNT = 120;
+    private static final int TEST_COUNT = 100;
 
     public void test() {
         CyclicBarrier cyclicBarrier = new CyclicBarrier(TEST_COUNT);
