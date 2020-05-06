@@ -47,10 +47,19 @@
         </dependency>
 
         <!-- clickhouse-jdbc -->
+        <!--
         <dependency>
             <groupId>ru.yandex.clickhouse</groupId>
             <artifactId>clickhouse-jdbc</artifactId>
             <version>0.2.4</version>
+        </dependency>
+        -->
+
+        <!-- clickhouse-native-jdbc -->
+        <dependency>
+            <groupId>com.github.housepower</groupId>
+            <artifactId>clickhouse-native-jdbc</artifactId>
+            <version>2.1-stable</version>
         </dependency>
 
         <!-- log4j2 -->
